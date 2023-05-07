@@ -1,0 +1,85 @@
+/* 
+    Name: Jake Goldman
+    CS 132 Spring 2023
+    Date: April 15, 2023
+    This is the styles.css page for my about me page. It is used by all pages \
+    in my project to help provide a sense of consistency. 
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Enriqueta:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Rock+Salt:400,700&display=swap');
+
+body {
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    /* Background from @xponentialdesign on Giphy at https://giphy.com/gifs/water-sea-torrent-lFNmSjRDN9SiLJ3a9Z */
+    background-image: url('https://assets.objkt.media/file/assets-003/QmUMRFmWKAr7eFYQcx4AVsbkAtLrbfocag8pQPPmmPgwMf/artifact');
+    font-family: Enriqueta, sans-serif;
+    flex-direction: column;
+}
+
+body, main {
+    display: flex;
+}
+
+header, footer {
+    text-align: center;
+    color: #0d2027;
+}
+
+header > h1, section > h2, aside > h2, article > h2 {
+    font-family: 'Rock Salt', sans-serif;
+}
+
+header > h2, header > p, h4 {
+    position: relative;
+}
+
+header > h2, header > p {
+    bottom: 7.5pt;   
+}
+
+h4 {
+    bottom: 15pt;
+    margin-bottom: 0%;
+}
+
+section, aside {
+    padding: 10px;
+    margin: 15pt;
+}
+
+aside {
+    width: 80%;
+    float: right;
+}
+
+aside > p {
+    margin: 0.5rem;
+}
+
+figure img {
+    width: 75%;
+}
+
+em {
+    font-style: italic;
+}
+
+header, aside, section, footer {
+	background-color: #e2e2e2e9;
+}
+
+footer {
+    width: 100%;
+    line-height: 45pt;
+}
+
+#pie_chart {
+    border-radius: 20%;
+}
+
+#offspring, #thy_art, #pup {
+    width: 30%;
+}

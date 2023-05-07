@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--
+    Author: Jake Goldman
+    CS 132 Spring 2023
+    Date: May 6, 2023
+
+    This is the index.html page for my turn-based RPG battle simulator: One Million. It includes 
+    the implementation of all webpage items and details. It is linked to styles.css and uses 
+    javascript code from utils.js and million.js
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>One Million!</title>
+    <script src="utils.js"></script>
+    <script defer src="million.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>One Million!</h1>
+    </header>
+    <main>
+      <section id="menu-view">
+        <h2>You have faced a long and arduous journey...</h2>
+        <p>
+          After the fall of your kingdom to the Great Darkness, you have trekked
+          across the land to defeat the Evil Dragon &ndash; overseer of the
+          Great Darkness. Along the way, you have assembled a party that you
+          hope is capable of defeating the Dragon and restoring peace to your
+          land. Your party must face the Dragon and defeat him in order to win.
+          The Dragon, however, has a health of 1,000,000 points.
+        </p>
+        <section id="character-display">
+          <div id="hero" class="character">
+            <!--Taken from https://www.clipartmax.com/download/m2H7Z5m2Z5K9K9Z5_fat-yoshi-png-fat-yoshi-png/-->
+            <img src="imgs/yoshi.png" alt="The Hero" />
+            <p>
+              <em>The Hero.</em> Capable of dealing moderate amounts of damage
+              with a moderate amount of defense.
+            </p>
+          </div>
+          <div id="knight" class="character">
+            <!--Taken from https://www.pngegg.com/en/png-bxyio-->
+            <img src="imgs/goomba.png" alt="The Knight" />
+            <p>
+              <em>The Knight.</em> Deals massive amounts of damage but has weak
+              defense.
+            </p>
+          </div>
+          <div id="scholar" class="character">
+            <!--Taken from https://www.pngwing.com/en/free-png-yehuj-->
+            <img src="imgs/bomb.png" alt="The Scholar" />
+            <p>
+              <em>The Scholar.</em> Deals a weak amount of damage but has a high
+              defense. When dealing any damage, they'll heal a portion of your
+              team's HP.
+            </p>
+          </div>
+          <div id="mage" class="character">
+            <!--Taken from https://www.pngegg.com/en/png-zqoqa-->
+            <img src="imgs/toad.png" alt="The Mage" />
+            <p>
+              <em>The Mage.</em> Incapable of dealing any damage but has
+              moderate defense. The Mage may upgrade the stats for any party
+              member.
+            </p>
+          </div>
+        </section>
+        <p>
+          One each turn, all members of your team will have the opportunity to
+          act, with the dragon making a move at the end of a turn. To win, you
+          must reduce the Dragon's health to 0.
+        </p>
+        <p>Do you have what it takes?</p>
+        <article>
+          <h2>Choose a Difficulty:</h2>
+          <p>
+            <label
+              ><input type="radio" name="diff" value="easy" checked />
+              Easy</label
+            >
+            <label
+              ><input type="radio" name="diff" value="standard" />
+              Standard</label
+            >
+            <label
+              ><input type="radio" name="diff" value="impossible" />
+              Impossible</label
+            >
+          </p>
+          <button id="start-btn">Start</button>
+        </article>
+      </section>
+
+      <section id="game-view" class="hidden">
+        <div id="details-bar">
+          <button id="menu-btn">Menu</button>
+          <span id="battle-status"></span>
+          <p>Max Damage Dealt: <span id="max-damage">0</span></p>
+        </div>
+
+        <section id="dragon-stats-display" class="character-stats">
+          <p>The Dragon</p>
+          <p>HP: <span id="dragon-hp">0</span></p>
+        </section>
+        <img src="imgs/dragon.png" alt="The Dragon" />
+        <section id="character-stats-display">
+          <div id="hero-stats" class="character-stats">
+            <div id="hero-actions" class="hidden">
+              <button id="hero-attack">Attack</button>
+              <button id="hero-defend">Defend</button>
+            </div>
+            <p>The Hero</p>
+            <p>
+              HP: <span id="hero-hp">0</span>/<span id="hero-max-hp"></span>
+            </p>
+          </div>
+          <div id="knight-stats" class="character-stats">
+            <div id="knight-actions" class="hidden">
+              <button id="knight-attack">Attack</button>
+              <button id="knight-defend">Defend</button>
+            </div>
+            <p>The Knight</p>
+            <p>
+              HP: <span id="knight-hp">0</span>/<span id="knight-max-hp"></span>
+            </p>
+          </div>
+          <div id="scholar-stats" class="character-stats">
+            <div id="scholar-actions" class="hidden">
+              <button id="scholar-attack">Attack</button>
+              <button id="scholar-defend">Defend</button>
+            </div>
+            <p>The Scholar</p>
+            <p>
+              HP: <span id="scholar-hp">0</span>/<span
+                id="scholar-max-hp"
+              ></span>
+            </p>
+          </div>
+          <div id="mage-stats" class="character-stats">
+            <div id="mage-level-up-opts" class="hidden">
+              <button id="mage-level-up-hero">The Hero</button>
+              <button id="mage-level-up-knight">The Kinght</button>
+              <button id="mage-level-up-scholar">The Scholar</button>
+              <button id="mage-level-up-mage">The Mage</button>
+            </div>
+            <div id="mage-actions" class="hidden">
+              <button id="mage-level-up">Level Up</button>
+              <button id="mage-defend">Defend</button>
+            </div>
+            <p>The Mage</p>
+            <p>
+              HP: <span id="mage-hp">0</span>/<span id="mage-max-hp"></span>
+            </p>
+          </div>
+        </section>
+      </section>
+    </main>
+    <footer>
+      <p>Photo citations are located in page source &copy; 2023</p>
+    </footer>
+  </body>
+</html>

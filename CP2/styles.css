@@ -1,0 +1,152 @@
+/*
+    Name: Jake Goldman
+    CS 132 Spring 2023
+    Date: May 6, 2023
+
+    This is the styles.css page for the One Million game. It is designed to give the site a 
+    consistent and aesthetic feel. It is also designed to reinforce consistency throughout
+    the webpage. 
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Caveat:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bitter:400,700&display=swap');
+
+body {
+    /* Background found at https://www.wallpaperflare.com/artwork-lava-fantasy-art-volcano-rock-beauty-in-nature-wallpaper-cselc */
+    background-image: url('imgs/background.jpg'); 
+    background-size: 100%;
+    font-family: 'Caveat', 'Courier New', Courier, monospace;
+}
+
+h1 {
+    font-size: 36pt; 
+    background-color: #2e353f;
+    border-radius: 0.25em;
+}
+
+h1, h3, #details-bar, footer, #menu-view article, #character-display, 
+#character-stats-display, #dragon-stats-display {
+    text-align: center;
+}
+
+h1, #menu-view, #dragon-stats-display {
+    padding: 10px;
+}
+
+h1, h3, #menu-view, #game-view {
+    color: #070709;
+}
+
+h1, #menu-view, #character-stats-display, #dragon-stats-display, #details-bar, footer {
+    border: 5pt solid black;
+}
+
+#game-view, button, #details-bar, footer, #menu-view p {
+    font-family: 'Bitter', Georgia, 'Times New Roman', Times, serif;    
+}
+
+#character-stats-display, #details-bar, #menu-view {
+    background-color: #50555d;    
+}
+
+#menu-view, #character-stats-display, #dragon-stats-display {
+    border-radius: 0.5em;    
+}
+
+#character-display, #details-bar, #character-stats-display {
+    display: flex;
+}
+
+#menu-view {
+    padding-bottom: 20px;
+}
+
+em {
+    font-weight: bold;
+}
+
+#character-stats-display, #dragon-stats-display, #details-bar, footer{
+    margin: 10px;
+}
+
+#dragon-stats-display, #character-display {
+    background-color: #9a492e;
+}
+
+button, .character {
+    background-color: #516f79;
+}
+
+footer, .character-stats {
+    background-color: #5b5f63;
+}
+
+#character-display, #details-bar, #character-stats-display, #dragon-stats-display {
+    justify-content: space-evenly;
+}
+
+#character-display, #character-stats-display {
+    flex-wrap: wrap;
+}
+
+#menu-view h2 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 30pt;
+}
+
+#menu-view p {
+    font-size: 12pt;
+}
+
+#character-display {
+    border: 3pt solid black;
+}
+
+#details-bar {
+    column-gap: 1000px;
+}
+
+#details-bar, .character {
+    align-items: center;
+}
+
+#battle-status {
+    position: absolute;
+}
+
+.character {
+    width: 200px;
+    height: 350px;
+    padding: 50px;
+}
+
+.character img {
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+#character-stats-display, #character-display {
+    padding: 20px;
+}
+
+#game-view img {
+    width: 20%;
+    margin: auto;
+    display: block;
+}
+
+.character-stats {
+    padding: 5px;
+}
+
+.character, .character-stats {
+    border: 2pt solid black;
+}
+
+#dragon-stats-display {
+    font-size: 16pt;
+}
