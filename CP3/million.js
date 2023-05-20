@@ -1,6 +1,6 @@
 /**
  * @author Jake Goldman 
- * May 6, 2023
+ * May 20, 2023
  * This file contains the implementation of all scripting code necessary for the 
  * One Million game. It is designed to simulate a standard turn-based RPG battle. 
  * It also controls webpage viewing and which objects are visible. 
@@ -26,19 +26,19 @@
 
     const HERO_HP = 100;
     const HERO_AT = 20;
-    const HERO_DF = 10;
+    const HERO_DF = 1.5;
 
     const KNIGHT_HP = 80;
     const KNIGHT_AT = 40;
-    const KNIGHT_DF = 1; 
+    const KNIGHT_DF = 1.1; 
 
     const SCHOLAR_HP = 150;
     const SCHOLAR_AT = 10;
-    const SCHOLAR_DF = 20;
+    const SCHOLAR_DF = 5;
 
     const MAGE_HP = 120;
     const MAGE_AT = 0;
-    const MAGE_DF = 15;
+    const MAGE_DF = 1.8;
 
     const DOG_HP = 1000000;
     const DOG_AT = 50;
@@ -345,11 +345,9 @@
             battleStatus.textContent = 'The Knight has been leveled up!';
         } else if (id == 2) {
             battleStatus.textContent = 'The Scholar has been leveled up!';
-        } else if (id == 3) {
+        } else  {
             battleStatus.textContent = 'The Mage has been leveled up!';
-        } else {
-            alert("Invalid ID");
-        }
+        } 
         updatePartyHP();
         switchToDogView();
     }
@@ -402,14 +400,26 @@
     }
 
     /**
+     * If the player is defending, divide the inflicted attack by their defense
+     * @param {Character} player - One of the four playable characters
+     * @param {Number} attackDealt - Initial attack dealt by the dog
+     * @returns Attack considering if the player is defending
+     */
+    function getRealAttackDealt(player, attackDealt) {
+        // Generate attack in [dog.attack - 10, dog.attack + 10]
+        return player.defending ? Math.round(attackDealt / player.defense) : attackDealt;
+    }
+
+    /**
      * Select a living player to attack or upgrade the stats of the dog. Check if the dog's
      * attack manages to end the game and proceed accordingly if so. 
      */
     function dogAttack() {             
         // Generate attack in [dog.attack - 10, dog.attack + 10]
         let battleStatus = qs("#battle-status");
-        let attackDealt = Math.round(
+        let at = Math.round(
             Math.random() * ATTACK_RANGE + dog.attack - ATTACK_RANGE / 2);
+        let attackDealt;
         while (true) {
             let moveIdx = Math.floor(Math.random() * 10);
             if (moveIdx == 0) {
@@ -417,34 +427,35 @@
                 battleStatus.textContent = 'The Dog has increased his power!';       
                 break;
             } else if (moveIdx <= 2 && hero.hp > 0) {
-                attackDealt = hero.defending ? Math.round(attackDealt / 2) : attackDealt;
+                attackDealt = getRealAttackDealt(hero, at);
                 hero.hp -= attackDealt;
                 battleStatus.textContent = 
                     'The Dog dealt ' + attackDealt + ' damage to the Hero!'; 
                 break;
             } else if (moveIdx <= 4 && knight.hp > 0) {
-                attackDealt = knight.defending ? Math.round(attackDealt / 2) : attackDealt;
+                attackDealt = getRealAttackDealt(knight, at);
                 knight.hp -= attackDealt;
                 battleStatus.textContent = 
                     'The Dog dealt ' + attackDealt + ' damage to the Knight!'; 
                 break;
             } else if (moveIdx <= 6 && scholar.hp > 0) {
-                attackDealt = scholar.defending ? Math.round(attackDealt / 2) : attackDealt;
+                attackDealt = getRealAttackDealt(scholar, at);
                 scholar.hp -= attackDealt;
                 battleStatus.textContent = 
                     'The Dog dealt ' + attackDealt + ' damage to the Scholar!';
                 break;
             } else if (moveIdx <= 8 && mage.hp > 0) {
-                attackDealt = mage.defending ? Math.round(attackDealt / 2) : attackDealt;
+                attackDealt = getRealAttackDealt(mage, at);
                 mage.hp -= attackDealt;
                 battleStatus.textContent = 
                     'The Dog dealt ' + attackDealt + ' damage to the Mage!'; 
                 break;
             } else if (moveIdx == 9) {
-                hero.hp -= hero.defending ? Math.round(attackDealt / 2) : attackDealt;
-                knight.hp -= knight.defending ? Math.round(attackDealt / 2) : attackDealt;
-                scholar.hp -= scholar.defending ? Math.round(attackDealt / 2) : attackDealt;
-                mage.hp -= mage.defending ? Math.round(attackDealt / 2) : attackDealt;
+                attackDealt = at;
+                hero.hp -= getRealAttackDealt(hero, at);
+                knight.hp -= getRealAttackDealt(knight, at);
+                scholar.hp -= getRealAttackDealt(scholar, at);
+                mage.hp -= getRealAttackDealt(mage, at);
                 battleStatus.textContent = 
                     'The Dog dealt ' + attackDealt + ' damage to all party members!'; 
                 break;
