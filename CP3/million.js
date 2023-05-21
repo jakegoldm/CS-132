@@ -583,9 +583,7 @@
         });
 
         let menuButton = qs("#menu-btn");
-        menuButton.addEventListener("click", () => {
-            resetGame();
-        });
+        menuButton.addEventListener("click", resetGame);
     }
 
     init();
