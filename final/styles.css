@@ -1,0 +1,54 @@
+/*
+    Name: Jake Goldman
+    CS 132 Spring 2023
+    Date: May 25, 2023
+
+    This is the styles.css page for the JakeOS shop. It is still in development. 
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Outfit:400,700&display=swap');
+
+body {
+    background-color: #f8f8f8;
+    font-family: 'Outfit', Georgia, 'Times New Roman', Times, serif;
+}
+
+header, body h2, .secondary, #main-product {
+    text-align: center;
+}
+
+header, body, main p {
+    padding: 5px;
+}
+
+h1 {
+    font-size: 28pt;
+}
+
+header, main {
+    background-color: #EAE9E9;
+}
+
+#main-product, #secondary-products {
+    background-color: #D4D7DD;
+    margin: 10px;
+
+}
+
+#main-product img {
+    width: 20%;
+}
+
+#main-product img, #secondary-product img {
+    display: block;
+}
+
+.secondary {
+    background-color: #420000;
+    margin: 5px;
+}
+
+#secondary-products {
+    display: flex;
+    justify-content: space-around;
+}

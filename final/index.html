@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+    Author: Jake Goldman
+    CS 132 Spring 2023
+    Date: May 25, 2023
+
+    This is the index.html page for JakeOS e-commerce store. It is still in development. 
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <title>JakeOS</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to JakeOS!</h1>
+        <p>
+            A fully secure operating system using AI technology for added protection.
+        </p>
+    </header>
+    <main>
+        <h2>About Us</h2>
+        <p>
+            JakeOS aims to combine the powers of Artificial Intelligence (AI) and 
+            cybersecurity to provide constantly evolving and improving computing 
+            system. Our technology brings a new computing system that provides 
+            layered encryption in networking, relayed connections, isolated memory, 
+            as well as a built-in learning system that identifies vulnerabilities 
+            based on your activity and consistently improves itself. 
+        </p>
+
+        <!--I plan on updating the images and CSS to be more aesthetic. I also plan on implementing
+        random promotions as part of the chosen features. -->
+        <section id="main-product">
+            <h2>JakeOS</h2>
+            <img src="imgs/goomba.png" alt="A graphic depicting the JakeOS system"/>
+            <a href="product.html">
+                <button id="purchase-jos-btn">Purchase the JakeOS</button>
+            </a>
+            <p>The full build of the JakeOS with all features.</p>
+        </section>
+        
+        <section id="secondary-products">
+            <div id="demo" class="secondary">
+                <h2>JakeOS Demo</h2>
+                <img src="imgs/yoshi.png" alt="The JakeOS Learning Model" />
+                <a href="product.html">
+                    <button id="purchase-demo-btn">Try the JakeOS Demo</button>
+                </a>
+                <p>A modified build of the JakeOS system without the AI capabilities.</p>
+            </div>
+            <div id="learning-model" class="secondary">
+                <h2>JakeOS Learning Model</h2>
+                <img src="imgs/yoshi.png" alt="The JakeOS Learning Model" />
+                <a href="product.html">
+                    <button id="purchase-lm-btn">Purchase the Learning Model</button>
+                </a>
+                <p>The JakeOS learning model for development purposes.</p>
+            </div>
+        </section>
+    </main>
+</body>
+<footer>
+    <p>Photo citations are located in page source &copy; 2023</p>
+</footer>
+</html>

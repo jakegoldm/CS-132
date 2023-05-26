@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+    Author: Jake Goldman
+    CS 132 Spring 2023
+    Date: May 25, 2023
+
+    This is the product.html page for JakeOS e-commerce store. It is still in development. 
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <title>JakeOS</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to JakeOS!</h1>
+        <p>
+            A fully secure operating system using AI technology for added protection.
+        </p>
+    </header>
+    <main>
+        <a href="index.html"><button id="home-btn">Return to Home</button></a>
+        <figure>
+            <img src="imgs/toad.png" alt="Graphic depiction of the JakeOS">
+            <figcaption id="product-description">The JakeOS is available today!</figcaption>
+        </figure>
+
+        <section id="product-info">
+            <div id="overview">
+                <p>Insert product description here</p>
+                <h3>
+                    Pricing Options
+                </h3>
+                <select name="size-options" id ="product-size">
+                    <option value="32-bit">32-bit OS</option>
+                    <option value="64-bit">64-bit OS</option>
+                </select>
+                <p id="price">Price: <span id="price-value">$00.00</span></p>
+                <!--I plan on implementing the actual price changes based on the product selecte4d-->
+                <button id="add-cart-btn">Add to Cart</button>
+            </div>
+            <aside>
+                <h3>Reviews</h3>
+                <!--I plan on implementing the review section-->
+            </aside>
+        </section>
+    </main>
+</body>
+<footer>
+    <p>Photo citations are located in page source &copy; 2023</p>
+</footer>
+</html>
